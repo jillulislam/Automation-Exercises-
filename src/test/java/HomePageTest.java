@@ -169,13 +169,16 @@ public class HomePageTest extends Configuration {
     }
 
     @Test
-    public void verifyAddingProductInCart_T12() throws InterruptedException {
+    public void verifyAddingProductInCart_T12(){
         homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.mouseHoverToProduct(0);
-        productPage.clickOnButton(0);
-        productPage.clickOnContinueShoppingButton();
+        productPage.clickOnAddToBusketButton(0);
+        productPage.clickOnContinueCartButton();
         productPage.mouseHoverToProduct(1);
-        productPage.clickOnButton(1);
+        productPage.clickOnAddToBusketButton(1);
+        productPage.clickOnContinueCartButton();
+        header.clickOnCart();
+
     }
 }

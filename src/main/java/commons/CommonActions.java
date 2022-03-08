@@ -85,6 +85,10 @@ public class CommonActions {
         return visible;
     }
 
+    public void waitFor(int millSec) throws InterruptedException {
+        Thread.sleep(millSec);
+    }
+
 //    public boolean searchedProductAreVisible(List<WebElement> element){
 //        int count = 0;
 //        boolean visible;
