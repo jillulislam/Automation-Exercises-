@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
+import java.util.Random;
 
 public class CommonActions {
 
@@ -87,6 +88,16 @@ public class CommonActions {
 
     public void waitFor(int millSec) throws InterruptedException {
         Thread.sleep(millSec);
+    }
+
+    public String getRandomString(int length) {
+        Random random = new Random();
+        String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < length; ++i) {
+            sb.append(ALPHABET.charAt(random.nextInt(ALPHABET.length())));
+        }
+        return sb.toString();
     }
 
 //    public boolean searchedProductAreVisible(List<WebElement> element){

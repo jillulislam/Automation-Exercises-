@@ -11,7 +11,7 @@ public class SignUpOrLogInPage extends CommonActions {
         this.driver= driver;
         initElement();
     }
-    public static String c_name = "Molly";
+    public static String c_name = "Jolly";
 
     @FindBy(xpath = "//div[@class='login-form']/h2")
     WebElement text_logInToYourAccount;
@@ -44,7 +44,7 @@ public class SignUpOrLogInPage extends CommonActions {
     WebElement text_emailAlreadyExist;
 
    public void verifyUserIsOnSignUpOrLogInPage(){
-       verify("utomation Exercise - Signup / Login", getTextOfPageTitle());
+       verify("Automation Exercise - Signup / Login", getTextOfPageTitle());
    }
 
    public void verifyNewUserSignUpTextIsVisible(){
@@ -52,7 +52,7 @@ public class SignUpOrLogInPage extends CommonActions {
    }
 
    public void enterRegisteredNameToSignup(){
-       typeText(signUp_name,"Molly");
+       typeText(signUp_name,c_name);
    }
 
     public void enterNameToSignup(){
@@ -60,7 +60,8 @@ public class SignUpOrLogInPage extends CommonActions {
     }
 
    public void enterEmailToSignUp(){
-       typeText(signUp_email,"molly121212@test.com");
+       String recipientName = getRandomString(3);
+       typeText(signUp_email,recipientName+"@test.com");
    }
 
    public void clickObSignupButton(){
