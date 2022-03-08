@@ -173,14 +173,9 @@ public class HomePageTest extends Configuration {
         homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.mouseHoverToProduct(0);
-        Thread.sleep(1000);
         productPage.clickOnButton(0);
-        Thread.sleep(1000);
         productPage.clickOnContinueShoppingButton();
-        Thread.sleep(2000);
         productPage.mouseHoverToProduct(1);
-        Thread.sleep(1000);
         productPage.clickOnButton(1);
-        //productPage.clickOnAddToCartButton2('''
     }
 }
