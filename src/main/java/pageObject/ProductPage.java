@@ -80,11 +80,11 @@ public class ProductPage extends CommonActions {
         clickOn(btn_addToCart2);
     }
 
-    public void clickOnContinueCartButton(){
+    public void clickOnContinueButton(){
         clickOn(btn_continueButton);
     }
 
-    public void clickOnAddToBusketButton(int index){
+    public void clickOnAddToCartButton(int index){
             WebElement element1 = btn.get(index);
             clickOn(element1);
     }

@@ -173,11 +173,11 @@ public class HomePageTest extends Configuration {
         homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.mouseHoverToProduct(0);
-        productPage.clickOnAddToBusketButton(0);
-        productPage.clickOnContinueCartButton();
+        productPage.clickOnAddToCartButton(0);
+        productPage.clickOnContinueButton();
         productPage.mouseHoverToProduct(1);
-        productPage.clickOnAddToBusketButton(1);
-        productPage.clickOnContinueCartButton();
+        productPage.clickOnAddToCartButton(1);
+        productPage.clickOnContinueButton();
         header.clickOnCart();
 
     }
