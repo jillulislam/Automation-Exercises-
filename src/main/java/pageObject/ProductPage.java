@@ -100,7 +100,5 @@ public class ProductPage extends CommonActions {
     }
 
     public void verifyProductPricesAreCorrect(){
-        ViewCartPage viewCartPage = new ViewCartPage(driver);
-        verify(getFirstProductPrice(),viewCartPage.getPriceOfFirstProduct());
     }
 }

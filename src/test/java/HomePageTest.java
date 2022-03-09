@@ -26,8 +26,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void registerANewUser_T1(){
-
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnSignUpOrLogin();
         signUpOrLogInPage.verifyUserIsOnSignUpOrLogInPage();
         signUpOrLogInPage.enterNameToSignup();
@@ -59,7 +57,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void loginUserWithCorrectEmailAndPassword_T2(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnSignUpOrLogin();
         signUpOrLogInPage.verifyLogIntoYourAccountTextIsVisible();
         signUpOrLogInPage.enterUserEmailAddress("molly12@test.com");
@@ -70,7 +67,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void loginUserWithIncorrectEmailAndPassword_T3(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnSignUpOrLogin();
         signUpOrLogInPage.verifyLogIntoYourAccountTextIsVisible();
         signUpOrLogInPage.enterUserEmailAddress("moly@test.com");
@@ -81,7 +77,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void logoutUserSuccessfully_T4(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnSignUpOrLogin();
         signUpOrLogInPage.verifyLogIntoYourAccountTextIsVisible();
         signUpOrLogInPage.enterUserEmailAddress("molly12@test.com");
@@ -94,7 +89,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void registerUserWithExistingEmail_T5(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnSignUpOrLogin();
         signUpOrLogInPage.verifyNewUserSignUpTextIsVisible();
         signUpOrLogInPage.enterRegisteredNameToSignup();
@@ -104,7 +98,6 @@ public class HomePageTest extends Configuration {
     }
     @Test
     public void contactUsForm_T6() {
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnContactUs();
         contactUsPage.verifyGetInTouchTextIsVisible();
         contactUsPage.enterYourName("hiyhhh");
@@ -121,14 +114,12 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void verifyTestCasePage_T7(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnTestcase();
         testCasesPage.verifyUserNavigatedToTestCasesPageSuccessfully();
     }
 
     @Test
     public void verifyAllProductAndProductDetailPage_T8(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.verifyUserIsOnTheProductPage();
         productPage.verifyProductListIsVisible();
@@ -139,7 +130,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void verifySearchProductFunctionality_T9(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.verifyUserIsOnTheProductPage();
         productPage.enterProductName("top");
@@ -151,7 +141,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void subscriptionFunctionalityInHomePage_T10(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         footer.scrollDownToFooterArea();
         footer.verifySubscriptionTextIsDisplayed();
         footer.enterEmailForSubscription();
@@ -161,7 +150,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void verifySubscriptionInCartPage_T11(){
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnCart();
         footer.scrollDownToFooterArea();
         footer.verifySubscriptionTextIsDisplayed();
@@ -172,7 +160,6 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void verifyAddingProductInCart_T12() throws InterruptedException {
-        //homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.mouseHoverToProduct(0);
         productPage.getFirstProductPrice();
@@ -198,7 +185,6 @@ public class HomePageTest extends Configuration {
     }
     @Test
     public void verifyDeletingProductInCart_T12(){
-        homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnProducts();
         productPage.mouseHoverToProduct(0);
         productPage.clickOnAddToCartButton(0);
@@ -207,7 +193,5 @@ public class HomePageTest extends Configuration {
         productPage.clickOnAddToCartButton(1);
         productPage.clickOnContinueButton();
         header.clickOnCart();
-
     }
 }
-
