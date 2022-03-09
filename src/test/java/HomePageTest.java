@@ -181,6 +181,7 @@ public class HomePageTest extends Configuration {
         productPage.clickOnContinueButton();
         header.clickOnCart();
     }
+    
     @Test
     public void verifyDeletingProductInCart_T12(){
         homePage.verifyHomePageIsVisibleSuccessfully();
