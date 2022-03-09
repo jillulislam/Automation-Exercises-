@@ -25,6 +25,7 @@ public class HomePageTest extends Configuration {
 
     @Test
     public void registerANewUser_T1(){
+
         homePage.verifyHomePageIsVisibleSuccessfully();
         header.clickOnSignUpOrLogin();
         signUpOrLogInPage.verifyUserIsOnSignUpOrLogInPage();
@@ -179,7 +180,6 @@ public class HomePageTest extends Configuration {
         productPage.clickOnAddToCartButton(1);
         productPage.clickOnContinueButton();
         header.clickOnCart();
-
     }
     @Test
     public void verifyDeletingProductInCart_T12(){

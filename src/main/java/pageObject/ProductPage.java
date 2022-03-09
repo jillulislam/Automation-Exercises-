@@ -38,6 +38,8 @@ public class ProductPage extends CommonActions {
     @FindBy(xpath = "//div[@class='overlay-content']/a")
     List <WebElement> btn;
 
+    @FindBy(xpath = "//div[@class='single-products']/div/h2")
+    List <WebElement> product_price;
 
     @FindBy(xpath = "//div[@class='single-products']/div/a[@data-product-id='2']")
     WebElement btn_addToCart2;
@@ -50,10 +52,14 @@ public class ProductPage extends CommonActions {
     }
 
     public void mouseHoverToProduct(int index){
-        for (int i =0; i<products.size()-1; i++){
-            WebElement element1 = products.get(index);
-            mouseHoverToAnElement(element1);
-        }
+        WebElement element1 = products.get(index);
+        mouseHoverToAnElement(element1);
+        String price = getTextOfAnElement(product_price.get(index));
+        String[] price1 = price.split(" ");
+        String price2 = price1[1];
+        int total = Integer.parseInt(price2);
+        System.out.println(price2);
+        System.out.println(total);
     }
 
     public void verifyProductListIsVisible(){
@@ -85,7 +91,7 @@ public class ProductPage extends CommonActions {
     }
 
     public void clickOnAddToCartButton(int index){
-            WebElement element1 = btn.get(index);
-            clickOn(element1);
+        WebElement element1 = btn.get(index);
+        clickOn(element1);
     }
 }
