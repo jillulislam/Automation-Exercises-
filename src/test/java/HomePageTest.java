@@ -181,4 +181,18 @@ public class HomePageTest extends Configuration {
         header.clickOnCart();
 
     }
+    @Test
+    public void verifyDeletingProductInCart_T12(){
+        homePage.verifyHomePageIsVisibleSuccessfully();
+        header.clickOnProducts();
+        productPage.mouseHoverToProduct(0);
+        productPage.clickOnAddToCartButton(0);
+        productPage.clickOnContinueButton();
+        productPage.mouseHoverToProduct(1);
+        productPage.clickOnAddToCartButton(1);
+        productPage.clickOnContinueButton();
+        header.clickOnCart();
+
+    }
 }
+
