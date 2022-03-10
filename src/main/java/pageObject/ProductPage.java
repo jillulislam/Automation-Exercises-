@@ -38,14 +38,11 @@ public class ProductPage extends CommonActions {
     @FindBy(xpath = "//div[@class='overlay-content']/a")
     List <WebElement> btn;
 
-    @FindBy(xpath = "//div[@class='single-products']/div/h2")
-    List <WebElement> product_price;
-
-    @FindBy(xpath = "//div[@class='single-products']/div/a[@data-product-id='2']")
-    WebElement btn_addToCart2;
-
     @FindBy(xpath = "//div[@class='modal-footer']/button")
     WebElement btn_continueButton;
+
+    @FindBy(xpath = "//div[@class='single-products']/div/h2")
+    List <WebElement> product_price;
 
     public void verifyUserIsOnTheProductPage(){
         verify("Automation Exercise - All Products", getTextOfPageTitle());
@@ -54,12 +51,6 @@ public class ProductPage extends CommonActions {
     public void mouseHoverToProduct(int index){
         WebElement element1 = products.get(index);
         mouseHoverToAnElement(element1);
-        String price = getTextOfAnElement(product_price.get(index));
-        String[] price1 = price.split(" ");
-        String price2 = price1[1];
-        int total = Integer.parseInt(price2);
-        System.out.println(price2);
-        System.out.println(total);
     }
 
     public void verifyProductListIsVisible(){
@@ -78,14 +69,6 @@ public class ProductPage extends CommonActions {
         clickOn(search);
     }
 
-    public void clickOnAddToCartButton1(){
-        clickOn(btn_addToCart1);
-    }
-
-    public void clickOnAddToCartButton2(){
-        clickOn(btn_addToCart2);
-    }
-
     public void clickOnContinueButton(){
         clickOn(btn_continueButton);
     }
@@ -93,5 +76,29 @@ public class ProductPage extends CommonActions {
     public void clickOnAddToCartButton(int index){
         WebElement element1 = btn.get(index);
         clickOn(element1);
+    }
+
+    public int getFirstProductPrice(){
+        String first_product = product_price.get(0).getText();
+        String[] price1 = first_product.split(" ");
+        String price2 = price1[1];
+        int productPrice = Integer.parseInt(price2);
+        return productPrice;
+    }
+
+    public int getSecondProductPrice(){
+        String second_product = product_price.get(1).getText();
+        String[] price1 = second_product.split(" ");
+        String price2 = price1[1];
+        int second_productPrice = Integer.parseInt(price2);
+        return second_productPrice;
+    }
+
+    public void totalPrice(){
+        int total = getFirstProductPrice() + getSecondProductPrice();
+        System.out.println("Total : " + total);
+    }
+
+    public void verifyProductPricesAreCorrect(){
     }
 }
