@@ -180,11 +180,6 @@ public class HomePageTest extends Configuration {
     }
 
     @Test
-    public void verifyProductQtyInCart(){
-
-    }
-    
-    @Test
     public void verifyDeletingProductInCart_T12(){
         header.clickOnProducts();
         productPage.mouseHoverToProduct(0);
