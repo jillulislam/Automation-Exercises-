@@ -39,6 +39,10 @@ public class CommonActions {
         Assert.assertEquals(expected,actual);
     }
 
+    protected void verify(int expected, int actual){
+        Assert.assertEquals(expected,actual);
+    }
+
     protected void verify(boolean expected, boolean actual){
         Assert.assertEquals(expected,actual);
     }
