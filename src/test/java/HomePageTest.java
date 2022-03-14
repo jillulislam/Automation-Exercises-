@@ -178,4 +178,8 @@ public class HomePageTest extends Configuration {
         //last step is throughing error
         productPage.verifyProductPricesAreCorrect();
     }
+
+    @Test
+    public void verifyAddingProductInCart_T13() {
+    }
 }
