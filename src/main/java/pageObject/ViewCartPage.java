@@ -52,11 +52,11 @@ public class ViewCartPage extends CommonActions {
         return productPrice;
     }
 
-    public String getTheQtyOfProduct(){
-        String qty1 = text_qnt1.getText();
+    public String getTheTotalQtyOfProduct(){
+        String qty1 = getTextOfAnElement(text_qnt1);
         int getQty1 = Integer.parseInt(qty1);
 
-        String qty2 = text_qnt2.getText();
+        String qty2 = getTextOfAnElement(text_qnt2);
         int getQty2 = Integer.parseInt(qty2);
 
         int getTotalQty = getQty1+getQty2;
@@ -66,8 +66,17 @@ public class ViewCartPage extends CommonActions {
         return s;
     }
 
-    public void verifyTheQtyIsCorrect(){
-        verify("2", getTheQtyOfProduct());
+    public String getTheQtyOfProduct() {
+        String qty = getTextOfAnElement(text_qnt1);
+        return qty;
+    }
+
+    public void verifyTheTotalQtyIsCorrect(){
+        verify("2", getTheTotalQtyOfProduct());
+    }
+
+    public void verifyTheQtyIsCorrect(String qty){
+        verify(qty, getTheQtyOfProduct());
     }
 
     public void verifyProductPricesAreCorrect(){
