@@ -23,6 +23,10 @@ public class CommonActions {
         element.click();
     }
 
+    public void clearTheField(WebElement element){
+        element.clear();
+    }
+
     public void navigateTo(String url){
         driver.get(url);
     }
