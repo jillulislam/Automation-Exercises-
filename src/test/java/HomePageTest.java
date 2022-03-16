@@ -192,8 +192,4 @@ public class HomePageTest extends Configuration {
         header.clickOnCart();
         viewCart.verifyTheQtyIsCorrect("4");
     }
-
-    public void verifyRegisterWhileCheckout_T14(){
-        
-    }
 }
