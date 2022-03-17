@@ -16,7 +16,8 @@ public class HomePageTest extends Configuration {
     ProductDetailsPage productDetailsPage = new ProductDetailsPage(driver);
     SearchedProductPage searchedProductPage = new SearchedProductPage(driver);
     Footer footer = new Footer(driver);
-    ViewCartPage viewCartPage = new ViewCartPage(driver);
+    ViewCartPage viewCart = new ViewCartPage(driver);
+    ViewProductPage viewProduct = new ViewProductPage(driver);
 
     @Before
     public void openTheUrl(){
@@ -174,8 +175,33 @@ public class HomePageTest extends Configuration {
         productPage.clickOnContinueButton();
         productPage.totalPrice();
         header.clickOnCart();
-        viewCartPage.verifyTheQtyIsCorrect();
+        viewCart.verifyTheTotalQtyIsCorrect();
         //last step is throughing error
         productPage.verifyProductPricesAreCorrect();
+    }
+
+    @Test
+    public void verifyProductQtyInCart_T13() {
+        homePage.clickOnViewProduct();
+        viewProduct.verifyProductDetailsPageIsOpen();
+        viewProduct.increaseQtyTo("4");
+        //did not find the element of arrow to increase product qty;
+        viewProduct.clickOnAddToCartButton();
+        //Can we keep continue button somewhere common as it has been used in multiple pages
+        viewProduct.clickOnContinueButton();
+        header.clickOnCart();
+        viewCart.verifyTheQtyIsCorrect("4");
+    }
+
+    public void t14(){
+        
+    }
+
+    public void t15(){
+
+    }
+
+    public void t16(){
+
     }
 }
