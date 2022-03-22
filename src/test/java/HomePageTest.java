@@ -192,4 +192,26 @@ public class HomePageTest extends Configuration {
         header.clickOnCart();
         viewCart.verifyTheQtyIsCorrect("4");
     }
+
+    @Test
+    public void verifyRegisterWhileCheckout_t14() throws InterruptedException {
+        homePage.scrollDownToTheProduct();
+        //productPage.mouseHoverToProduct(0);
+        //I have 3 same methods in product page
+        homePage.mouseHoverToProduct(0);
+        homePage.clickOnAddToCartButton(0);
+        homePage.waitFor(1000);
+        homePage.clickOnContinueButton();
+        homePage.waitFor(1000);
+        header.clickOnCart();
+        viewCart.verifyCartPageIsDisplayed();
+    }
+
+    public void t15(){
+
+    }
+
+    public void t16(){
+
+    }
 }

@@ -71,6 +71,10 @@ public class ViewCartPage extends CommonActions {
         return qty;
     }
 
+    public void verifyCartPageIsDisplayed() {
+        verify("1",getTheQtyOfProduct());
+    }
+
     public void verifyTheTotalQtyIsCorrect(){
         verify("2", getTheTotalQtyOfProduct());
     }
