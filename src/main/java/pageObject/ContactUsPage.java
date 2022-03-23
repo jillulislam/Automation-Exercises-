@@ -38,7 +38,7 @@ public class ContactUsPage extends CommonActions {
     @FindBy(xpath = "//div[2]/div[1]/div/div[2]")
     WebElement text_successMsg;
 
-    public void verifyGetInTouchTextIsVisible(){
+    public void verifyUserIsOnContactUsPage(){
         verify("GET IN TOUCH",text_getInTouch.getText());
     }
 

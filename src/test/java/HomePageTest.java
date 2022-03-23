@@ -17,127 +17,12 @@ public class HomePageTest extends Configuration {
     SearchedProductPage searchedProductPage = new SearchedProductPage(driver);
     Footer footer = new Footer(driver);
     ViewCartPage viewCart = new ViewCartPage(driver);
-    ViewProductPage viewProduct = new ViewProductPage(driver);
+    ViewProductPage viewProductPage = new ViewProductPage(driver);
 
     @Before
     public void openTheUrl(){
         header.navigateTo("https://www.automationexercise.com/");
         homePage.verifyHomePageIsVisibleSuccessfully();
-    }
-
-    @Test
-    public void registerANewUser_T1(){
-        header.clickOnSignUpOrLogin();
-        signUpOrLogInPage.verifyUserIsOnSignUpOrLogInPage();
-        signUpOrLogInPage.enterNameToSignup();
-        signUpOrLogInPage.enterEmailToSignUp();
-        signUpOrLogInPage.clickObSignupButton();
-        accountInformationPage.verifyEnterAccountInformationTextIsVisible();
-        accountInformationPage.clickOnMr();
-        accountInformationPage.enterPassword();
-        accountInformationPage.selectDate();
-        accountInformationPage.selectMonth();
-        accountInformationPage.selectYear();
-        accountInformationPage.selectSignUpForOurNewsLetterCheckBox();
-        accountInformationPage.selectReceiveSpecialOfferFromOurPartnersCheckBox();
-        accountInformationPage.enterFirstName();
-        accountInformationPage.enterLastName();
-        accountInformationPage.enterCompanyName();
-        accountInformationPage.enterAddress();
-        accountInformationPage.enterAddress2();
-        accountInformationPage.selectCountry();
-        accountInformationPage.enterState();
-        accountInformationPage.enterCity();
-        accountInformationPage.enterZipCode();
-        accountInformationPage.enterMobileNo();
-        accountInformationPage.clickOnCreateAccountButton();
-        successfullyAccountCreationPage.verifyAccountIsCreatedSuccessfully();
-        successfullyAccountCreationPage.clickOnContinue();
-        header.verifyLoggedInAsUserNameIsVisible();
-    }
-
-    @Test
-    public void loginUserWithCorrectEmailAndPassword_T2(){
-        header.clickOnSignUpOrLogin();
-        signUpOrLogInPage.verifyLogIntoYourAccountTextIsVisible();
-        signUpOrLogInPage.enterUserEmailAddress("molly12@test.com");
-        signUpOrLogInPage.enterPassword("jsghsf242323");
-        signUpOrLogInPage.clickOnLogInButton();
-        header.verifyLoggedInAsUserNameIsVisible();
-    }
-
-    @Test
-    public void loginUserWithIncorrectEmailAndPassword_T3(){
-        header.clickOnSignUpOrLogin();
-        signUpOrLogInPage.verifyLogIntoYourAccountTextIsVisible();
-        signUpOrLogInPage.enterUserEmailAddress("moly@test.com");
-        signUpOrLogInPage.enterPassword("dfgsdfsdf");
-        signUpOrLogInPage.clickOnLogInButton();
-        signUpOrLogInPage.verifyErrorYourEmailOrPasswordMsgIsVisible();
-    }
-
-    @Test
-    public void logoutUserSuccessfully_T4(){
-        header.clickOnSignUpOrLogin();
-        signUpOrLogInPage.verifyLogIntoYourAccountTextIsVisible();
-        signUpOrLogInPage.enterUserEmailAddress("molly12@test.com");
-        signUpOrLogInPage.enterPassword("jsghsf242323");
-        signUpOrLogInPage.clickOnLogInButton();
-        header.verifyLoggedInAsUserNameIsVisible();
-        header.clickOnLogOut();
-        signUpOrLogInPage.verifyUserIsOnSignUpOrLogInPage();
-    }
-
-    @Test
-    public void registerUserWithExistingEmail_T5(){
-        header.clickOnSignUpOrLogin();
-        signUpOrLogInPage.verifyNewUserSignUpTextIsVisible();
-        signUpOrLogInPage.enterRegisteredNameToSignup();
-        signUpOrLogInPage.enterUserARegisteredEmailAddress("molly12@test.com");
-        signUpOrLogInPage.clickObSignupButton();
-        signUpOrLogInPage.verifyEmailAlreadyExistsTextIsVisible();
-    }
-    @Test
-    public void contactUsForm_T6() {
-        header.clickOnContactUs();
-        contactUsPage.verifyGetInTouchTextIsVisible();
-        contactUsPage.enterYourName("hiyhhh");
-        contactUsPage.enterYourEmail("asdasd@text.com");
-        contactUsPage.subject();
-        contactUsPage.writeYourMessage();
-        contactUsPage.uploadAFileButton();
-        contactUsPage.clickOnSubmitButton();
-        contactUsPage.clickOnAlert();
-        contactUsPage.verifySuccessMessageIsDisplaying();
-        contactUsPage.clickOnHomeButton();
-        homePage.verifyHomePageIsVisibleSuccessfully();
-    }
-
-    @Test
-    public void verifyTestCasePage_T7(){
-        header.clickOnTestcase();
-        testCasesPage.verifyUserNavigatedToTestCasesPageSuccessfully();
-    }
-
-    @Test
-    public void verifyAllProductAndProductDetailPage_T8(){
-        header.clickOnProducts();
-        productPage.verifyUserIsOnTheProductPage();
-        productPage.verifyProductListIsVisible();
-        productPage.clickOnFirstProduct();
-        productDetailsPage.verifyUserIsOnTheProductDetailPage();
-        //Last step need more details
-    }
-
-    @Test
-    public void verifySearchProductFunctionality_T9(){
-        header.clickOnProducts();
-        productPage.verifyUserIsOnTheProductPage();
-        productPage.enterProductName("top");
-        productPage.clickOnSearch();
-        searchedProductPage.verifySearchedProductPageIsVisible();
-        //Test case is failing
-        //searchedProductPage.verifyProductRelatedToSearchAreVisible();
     }
 
     @Test
@@ -157,40 +42,6 @@ public class HomePageTest extends Configuration {
         footer.enterEmailForSubscription();
         footer.clickOnSubscriptionArrowButton();
         footer.verifySubscriptionSuccessMsgIsDisplayed();
-    }
-
-    @Test
-    public void verifyAddingProductInCart_T12() throws InterruptedException {
-        header.clickOnProducts();
-        productPage.mouseHoverToProduct(0);
-        productPage.getFirstProductPrice();
-        productPage.clickOnAddToCartButton(0);
-        productPage.waitFor(1000);
-        productPage.clickOnContinueButton();
-        productPage.waitFor(1000);
-        productPage.mouseHoverToProduct(1);
-        productPage.getSecondProductPrice();
-        productPage.waitFor(1000);
-        productPage.clickOnAddToCartButton(1);
-        productPage.clickOnContinueButton();
-        productPage.totalPrice();
-        header.clickOnCart();
-        viewCart.verifyTheTotalQtyIsCorrect();
-        //last step is throughing error
-        productPage.verifyProductPricesAreCorrect();
-    }
-
-    @Test
-    public void verifyProductQtyInCart_T13() {
-        homePage.clickOnViewProduct();
-        viewProduct.verifyProductDetailsPageIsOpen();
-        viewProduct.increaseQtyTo("4");
-        //did not find the element of arrow to increase product qty;
-        viewProduct.clickOnAddToCartButton();
-        //Can we keep continue button somewhere common as it has been used in multiple pages
-        viewProduct.clickOnContinueButton();
-        header.clickOnCart();
-        viewCart.verifyTheQtyIsCorrect("4");
     }
 
     @Test
