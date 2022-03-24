@@ -12,6 +12,9 @@ public class ViewCartPage extends CommonActions {
         initElement();
     }
 
+    @FindBy(xpath = "//*[contains(text(),'Proceed To Checkout')]")
+    WebElement btn_proceedToCheckout;
+
     @FindBy(xpath = "//*[@id='product-1']/td[2]/h4/a")
     WebElement text_product1;
 
@@ -35,6 +38,11 @@ public class ViewCartPage extends CommonActions {
 
     @FindBy(xpath = "//*[@id='product-2']/td[5]/p")
     WebElement text_totalPro2;
+
+    @FindBy(xpath = "//button[contains(text(),'Continue On Cart')]")
+    WebElement btn_ContinueOnCart;
+
+
 
     public int getPriceOfFirstProduct(){
         String price = text_price1.getText();
@@ -72,7 +80,7 @@ public class ViewCartPage extends CommonActions {
     }
 
     public void verifyCartPageIsDisplayed() {
-        verify("1",getTheQtyOfProduct());
+        verify("Proceed To Checkout",btn_proceedToCheckout.getText());
     }
 
     public void verifyTheTotalQtyIsCorrect(){
@@ -86,5 +94,13 @@ public class ViewCartPage extends CommonActions {
     public void verifyProductPricesAreCorrect(){
         ProductPage productPage = new ProductPage(driver);
         verify(productPage.getFirstProductPrice(),getPriceOfFirstProduct());
+    }
+
+    public void clickOnProceedToCheckout(){
+        clickOn(btn_proceedToCheckout);
+    }
+
+    public void clickOnContinueOnCart(){
+        clickOn(btn_ContinueOnCart);
     }
 }
